@@ -11,13 +11,14 @@ public class NoteReader {
 	}
 	
 	public void stop(){
+		System.out.println("Stop method");
 		comLine.setRunning(false);
 	}
 	
 	public void start(){
 		
 		comLine.setRunning(true);
-		
+		System.out.println("Start method");
 		while (comLine.getRunning()) {
 			 
 			String note = comLine.getCurrentLine();
@@ -33,12 +34,15 @@ public class NoteReader {
 				}
 
 			}
+			
+			stop();
 
 		}
 	}
 	
 	
 	public String getCurrentLine(){
+		System.out.println("Stop method");
 		return currentLine;
 	}
 

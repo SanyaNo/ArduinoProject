@@ -20,7 +20,7 @@ public class Main {
 		
 		NoteReader reader = new NoteReader(comLine);
 		reader.start();
-		reader.stop();
+		
 
 		
 		System.out.println("Started");
