@@ -21,6 +21,7 @@ public class ArduinoCom implements SerialPortEventListener {
 			
 			"COM3", // Windows
 			"COM5",
+			
 	};
 	/**
 	* A BufferedReader which will be fed by a InputStreamReader 
