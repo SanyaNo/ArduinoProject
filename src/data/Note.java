@@ -1,4 +1,4 @@
-package application;
+package data;
 
 public class Note {
 	private String name;

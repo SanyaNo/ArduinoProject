@@ -9,7 +9,7 @@ import gnu.io.SerialPortEventListener;
 import java.util.Enumeration;
 
 
-public class SerialTest implements SerialPortEventListener {
+public class ArduinoCom implements SerialPortEventListener {
 	private SerialPort serialPort;
         /** The port we're normally going to use. */
 	
@@ -20,6 +20,7 @@ public class SerialTest implements SerialPortEventListener {
 	private static final String PORT_NAMES[] = { 
 			
 			"COM3", // Windows
+			"COM5",
 	};
 	/**
 	* A BufferedReader which will be fed by a InputStreamReader 

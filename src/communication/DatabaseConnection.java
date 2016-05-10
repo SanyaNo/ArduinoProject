@@ -1,4 +1,4 @@
-package application;
+package communication;
 
 public class DatabaseConnection {
 
