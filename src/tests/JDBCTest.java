@@ -24,12 +24,20 @@ public class JDBCTest {
 			result = stm.executeQuery(sql);
 
 			while (result.next()) {
-				System.out.println(result.getString("first_name") + " " + result.getString("last_name"));
+				System.out.println(result.getString("first_name") + " || " + result.getString("last_name"));
 			}
 
-		} catch (SQLException ex) {
+		} catch (SQLException se) {
 
-			ex.printStackTrace();
+			int count = 1;
+			while (se != null) {
+				System.out.println("SQLException " + count);
+				System.out.println("Code: " + se.getErrorCode());
+				System.out.println("SqlState: " + se.getSQLState());
+				System.out.println("Error Message: " + se.getMessage());
+				se = se.getNextException();
+				count++;
+			}
 
 		}
 	}

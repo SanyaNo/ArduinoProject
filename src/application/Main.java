@@ -3,6 +3,7 @@ package application;
 import javax.swing.JFrame;
 
 import communication.ArduinoCom;
+import graphics.MyWindow;
 
 public class Main {
 
@@ -16,7 +17,7 @@ public class Main {
 
 		// Get the damn thing to close
 
-		getWindow();
+		MyWindow window = new MyWindow();
 		
 		NoteReader reader = new NoteReader(comLine);
 		reader.start();
