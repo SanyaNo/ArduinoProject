@@ -2,9 +2,8 @@ package graphics;
 
 import java.awt.BorderLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -14,14 +13,10 @@ public class MyWindow extends JFrame {
 		
 		super("Arduino Project");
 		setNumbusLookAndFeel();
-		setDefaultWindowProperties();
-		
 		LeftPanel panel = new LeftPanel();
-		setLayout(new BorderLayout());
-		add(panel, BorderLayout.WEST);
+		setDefaultWindowProperties(panel);
 		
-		panel.add(new JLabel("Test"));
-		
+		//tree createds
 		
 	}
 	
@@ -45,12 +40,22 @@ public class MyWindow extends JFrame {
 	}
 	
 	
-	public void setDefaultWindowProperties(){
+	public void setDefaultWindowProperties(LeftPanel panel){
 		
-		setSize(600, 500);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setIcon();
+		setLayout(new BorderLayout());
+		add(panel, BorderLayout.WEST);
+		setSize(600, 600);
 		setVisible(true);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		
+	}
+	
+	public void setIcon(){
+		this.setIconImage(new ImageIcon("D:/java/ArduinoProject/icon.png").getImage());
 	}
 
 }
