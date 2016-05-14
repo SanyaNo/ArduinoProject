@@ -46,6 +46,7 @@ public class MyWindow extends JFrame {
 		setIcon();
 		setLayout(new BorderLayout());
 		add(panel, BorderLayout.WEST);
+		pack();
 		setSize(600, 600);
 		setVisible(true);
 		setLocationRelativeTo(null);
