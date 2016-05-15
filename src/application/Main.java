@@ -1,5 +1,6 @@
 package application;
 
+import data.Sheet;
 import graphics.MyWindow;
 
 public class Main {
@@ -11,7 +12,13 @@ public class Main {
 			MyWindow window = new MyWindow();
 
 			NoteReader reader = new NoteReader();
-			reader.start();
+			
+			//TODO get the sheet from the menu
+			Sheet sheet = new Sheet();
+			
+			NoteComparator compare = new NoteComparator(reader, sheet);
+			compare.start();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

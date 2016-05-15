@@ -8,15 +8,17 @@ public class NoteComparator {
 	
 	private Sheet sheet;
 	
-	public NoteComparator(NoteReader reader){
+	public NoteComparator(NoteReader reader, Sheet sheet){
 		
 		this.reader = reader;
+		this.sheet = sheet;
 		
 	}
 	
-	public void compare(){
-		//TODO
+	public void start(){
+		reader.start();
 	}
+	
 	
 
 }
