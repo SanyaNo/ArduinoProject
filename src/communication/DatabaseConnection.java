@@ -3,6 +3,7 @@ package communication;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import tests.Error;
 
 public class DatabaseConnection {
 
@@ -25,13 +26,14 @@ public class DatabaseConnection {
 		if (connection == null) {
 
 			try {
-				String url = "jdbc:mysql://localhost:3306/demo?useSSL=false";
+				String url = "jdbc:mysql://localhost:3306/arduino_app?useSSL=false";
 				String username = "musician";
 				String password = "musician";
 				connection = DriverManager.getConnection(url, username, password);
 			} catch (SQLException se) {
 				int count = 1;
 				while (se != null) {
+					new Error();
 					System.out.println("SQLException " + count);
 					System.out.println("Code: " + se.getErrorCode());
 					System.out.println("SqlState: " + se.getSQLState());

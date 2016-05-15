@@ -3,45 +3,40 @@ package application;
 import communication.ArduinoCom;
 
 public class NoteReader {
-	ArduinoCom comLine;
-	private String currentLine;
-	
-	public NoteReader(ArduinoCom comLine){
-		this.comLine =  comLine;
+
+	private ArduinoCom comLine = new ArduinoCom();
+	private String currentLine = "empty";
+	private String note = " ";
+
+	public NoteReader() {
+		
+		comLine.initialize();
+		
 	}
-	
-	public void stop(){
+
+	public void stop() {
 		System.out.println("Stop method");
 		comLine.setRunning(false);
 	}
-	
-	public void start(){
-		
+
+	public void start() throws NullPointerException {
+
 		comLine.setRunning(true);
 		System.out.println("Start method");
-		while (comLine.getRunning()) {
-			 
-			String note = comLine.getCurrentLine();
 
-			if (!(note == null)) {
-
-				if (!currentLine.equals(note)) {
-
-					currentLine = note;
-					// Note comparator logic
-					System.out.println("Test");
-
-				}
-
+		while (comLine.isRunning()) {
+			if (comLine.getCurrentLine() != null){
+				note = comLine.getCurrentLine();
 			}
-			
-			stop();
+			if (!currentLine.equals(note)) {
+
+				currentLine = note;
+			}
 
 		}
 	}
-	
-	
-	public String getCurrentLine(){
+
+	public String getCurrentLine() {
 		System.out.println("Stop method");
 		return currentLine;
 	}

@@ -75,6 +75,4 @@ public class Sheet {
 		this.notes = notes;
 	}
 
-	// end getters and setters
-
 }

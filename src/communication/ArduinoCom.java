@@ -118,7 +118,7 @@ public class ArduinoCom implements SerialPortEventListener {
 		running = state;
 	}
 	
-	public boolean getRunning(){
+	public boolean isRunning(){
 		return running;
 		
 	}
