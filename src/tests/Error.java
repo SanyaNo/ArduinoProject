@@ -15,7 +15,7 @@ public class Error extends JFrame{
 
 	public Error() {
 		
-		ImageIcon imageIcon = new ImageIcon("D:/java/ArduinoProject/giphy.gif");
+		ImageIcon imageIcon = new ImageIcon("D:/java/ArduinoProject/resources/pics/giphy.gif");
 		JLabel label = new JLabel(imageIcon);
 		setDefaultWindowProperties(label);
 
