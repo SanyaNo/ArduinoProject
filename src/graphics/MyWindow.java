@@ -10,22 +10,22 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class MyWindow extends JFrame {
 	
 	private LeftPanel panel;
+	private Toolbar toolbar;
 
 	public MyWindow() {
 		
 		super("Arduino Project");
 		setNumbusLookAndFeel();
 		
-		//create elements
+		//TODO create elements
 		panel = new LeftPanel();
-		
+		toolbar = new Toolbar();
 		setDefaultWindowProperties();
 		
-		//add elements
+		//TODO add elements
+		
+		add(toolbar, BorderLayout.NORTH);
 		add(panel, BorderLayout.WEST);
-		
-		//tree create
-		
 	}
 	
 	public void setNumbusLookAndFeel(){
@@ -63,7 +63,7 @@ public class MyWindow extends JFrame {
 	}
 	
 	public void setIcon(){
-		this.setIconImage(new ImageIcon("D:/java/ArduinoProject/resources/pics/icon.png").getImage());
+		this.setIconImage(new ImageIcon("./resources/pics/icon.png").getImage());
 	}
 
 }

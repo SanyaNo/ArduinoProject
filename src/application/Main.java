@@ -13,7 +13,7 @@ public class Main {
 
 			NoteReader reader = new NoteReader();
 			
-			//TODO get the sheet from the menu
+			//TODO get the sheet from the menu a.k.a. database
 			Sheet sheet = new Sheet();
 			
 			NoteComparator compare = new NoteComparator(reader, sheet);

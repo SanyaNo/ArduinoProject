@@ -19,7 +19,9 @@ public class LeftPanel extends JPanel {
 	private JTree menu;
 
 	public LeftPanel() {
+		
 		//TODO fit tree hierarchy
+		
 		DefaultMutableTreeNode node = new DefaultMutableTreeNode("Sheet");
 		populateSheetNode(node);
 		menu = new JTree(node);
@@ -30,7 +32,7 @@ public class LeftPanel extends JPanel {
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 
 		JScrollPane scroll = new JScrollPane(menu);
-		scroll.setPreferredSize(new Dimension(150, 500));
+		scroll.setPreferredSize(new Dimension(150, 450));
 		add(scroll, new FlowLayout());
 
 	}

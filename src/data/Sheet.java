@@ -8,7 +8,7 @@ public class Sheet {
 	
 	private String name;
 	
-	private String key = "";
+	private String sheetKey = "";
 
 	private String timeSignature = "";
 
@@ -43,12 +43,14 @@ public class Sheet {
 		this.id = id;
 	}
 
-	public String getKey() {
-		return key;
+
+
+	public String getSheetKey() {
+		return sheetKey;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setSheetKey(String sheetKey) {
+		this.sheetKey = sheetKey;
 	}
 
 	public String getTimeSignature() {
