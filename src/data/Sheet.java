@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Sheet {
 
+	//TODO implement the display of sheet information
 	private int id;
 	
 	private String name;

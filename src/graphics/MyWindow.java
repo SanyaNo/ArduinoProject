@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+
+
 public class MyWindow extends JFrame {
 	
 	private LeftPanel panel;
@@ -26,6 +28,8 @@ public class MyWindow extends JFrame {
 		
 		add(toolbar, BorderLayout.NORTH);
 		add(panel, BorderLayout.WEST);
+		
+
 	}
 	
 	public void setNumbusLookAndFeel(){
