@@ -1,4 +1,4 @@
-package tests;
+package tools;
 
 public class IntegerReader {
 	private int currentLine;

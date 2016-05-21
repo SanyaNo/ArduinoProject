@@ -17,7 +17,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import communication.Dispatcher;
 import data.Sheet;
-import tests.Utilities;
+import tools.Utilities;
 
 public class LeftPanel extends JPanel {
 

@@ -12,7 +12,6 @@ public class Dispatcher {
 
 	private static Connection connection = DatabaseConnection.getInstance().getConnection();
 	
-	
 	public Dispatcher() {
 
 	}

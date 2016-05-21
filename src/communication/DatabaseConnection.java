@@ -3,7 +3,8 @@ package communication;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import tests.Error;
+
+import tools.Error;
 
 public class DatabaseConnection {
 

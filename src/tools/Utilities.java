@@ -1,4 +1,4 @@
-package tests;
+package tools;
 
 import java.awt.Container;
 
