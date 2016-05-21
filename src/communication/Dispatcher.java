@@ -12,12 +12,7 @@ public class Dispatcher {
 
 	private static Connection connection = DatabaseConnection.getInstance().getConnection();
 	
-	public static void main(String[] args){
-		
-		populateSheet("C Major Ex. 1");
-		
-	}
-
+	
 	public Dispatcher() {
 
 	}

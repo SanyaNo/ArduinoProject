@@ -17,6 +17,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import communication.Dispatcher;
 import data.Sheet;
+import tests.Utilities;
 
 public class LeftPanel extends JPanel {
 
@@ -49,9 +50,9 @@ public class LeftPanel extends JPanel {
 		        
 		    /* React to the node selection. */
 		       Container win = menu.getParent().getParent().getParent().getParent().getParent().getParent().getParent();
-		       
-		       System.out.println("Success " + selectedNode.toString());
 		       win.add(new LeftPanel(), BorderLayout.EAST);
+		       win.validate();
+		       win.repaint();
 		      
 		    } 
 		});
