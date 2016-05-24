@@ -1,12 +1,12 @@
 package graphics;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
@@ -16,56 +16,58 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import communication.Dispatcher;
+import data.Note;
 import data.Sheet;
-import tools.Utilities;
 
 public class LeftPanel extends JPanel {
 
 	private JTree menu;
-	
+
 	private Object selectedNode = "";
-	
-	private LeftPanelListener lpl;
-	
+
 	private MyWindow win;
 
 	public LeftPanel() {
-		
-		//TODO fit tree hierarchy
-		
+
+		// TODO fit tree hierarchy
+
 		DefaultMutableTreeNode node = new DefaultMutableTreeNode("Sheets");
 		populateSheetNode(node);
 		menu = new JTree(node);
 		menu.setShowsRootHandles(true);
 		menu.addTreeSelectionListener(new TreeSelectionListener() {
-		    public void valueChanged(TreeSelectionEvent e) {
-		        DefaultMutableTreeNode node = (DefaultMutableTreeNode)
-		                           menu.getLastSelectedPathComponent();
+			public void valueChanged(TreeSelectionEvent e) {
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode) menu.getLastSelectedPathComponent();
 
-		    /* if nothing is selected */ 
-		        if (node == null) return;
+				/* if nothing is selected */
+				if (node == null)
+					return;
 
-		    /* retrieve the node that was selected */ 
-		        selectedNode = node.getUserObject();
-		        
-		    /* React to the node selection. */
-		       Container win = menu.getParent().getParent().getParent().getParent().getParent().getParent().getParent();
-		       win.add(new LeftPanel(), BorderLayout.EAST);
-		       win.validate();
-		       win.repaint();
-		      
-		    } 
+				/* retrieve the node that was selected */
+				selectedNode = node.getUserObject();
+				String title = selectedNode.toString();
+				/* React to the node selection. */
+				MyWindow win = (MyWindow) menu.getParent().getParent().getParent().getParent().getParent().getParent()
+						.getParent();
+				SheetArea sheetArea = win.getSheetArea();
+				sheetArea.removeAll();
+				ArrayList<Note> score = Dispatcher.getScore(title);
+				if (!title.equals("Sheets")) sheetArea.paintScore(score, title);
+				
+				win.validate();
+				win.repaint();
+
+			}
 		});
-	
-		
 
 		Border innerBorder = BorderFactory.createTitledBorder("Menu");
 		Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 		setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 
 		JScrollPane scroll = new JScrollPane(menu);
-		scroll.setPreferredSize(new Dimension(150, 450));
 		add(scroll, new FlowLayout());
+
+		scroll.setPreferredSize(new Dimension(150, 650));
 
 	}
 
@@ -87,12 +89,4 @@ public class LeftPanel extends JPanel {
 		this.selectedNode = selectedNode;
 	}
 
-	public LeftPanelListener getLpl() {
-		return lpl;
-	}
-
-	public void setLpl(LeftPanelListener lpl) {
-		this.lpl = lpl;
-	}
-	
 }

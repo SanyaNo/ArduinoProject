@@ -6,11 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import data.Note;
 import data.Sheet;
 
 public class Dispatcher {
 
 	private static Connection connection = DatabaseConnection.getInstance().getConnection();
+	
 	
 	public Dispatcher() {
 
@@ -38,8 +40,8 @@ public class Dispatcher {
 		return sheets;
 	}
 
-	public static Sheet populateSheet(String name) {
-		Sheet sheet = null;
+	public static ArrayList<Note> getScore(String name) {
+		ArrayList<Note> score = new ArrayList<Note>();
 		ResultSet result = null;
 
 		String sql = "select n.id as pitch, n.note, n_d.note_name, n_s.sequence as position"
@@ -48,13 +50,20 @@ public class Dispatcher {
 				+ "on n_s.note_id = n.id where s.sheet = ? order by position ASC;";
 		try {
 			PreparedStatement stm = connection.prepareStatement(sql);
-			// set params
+			
 
 			stm.setString(1, name);
 			result = stm.executeQuery();
 			
 			while(result.next()){
 				
+				Note note = new Note();
+				note.setDuration(result.getString("note_name"));
+				note.setName(result.getString("note"));
+				note.setPitch(result.getInt("pitch"));
+				note.setPosition(result.getInt("position"));
+				
+				score.add(note);
 			}
 			
 			
@@ -62,6 +71,6 @@ public class Dispatcher {
 			new SQLError(se);
 		}
 
-		return sheet;
+		return score;
 	}
 }

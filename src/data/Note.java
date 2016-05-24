@@ -7,6 +7,16 @@ public class Note {
 	private int pitch;
 	
 	private int position;
+	
+	public String duration;
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
 
 	public String getName() {
 		return name;
@@ -16,6 +26,7 @@ public class Note {
 		this.name = name;
 	}
 
+	
 	public int getPitch() {
 		return pitch;
 	}
@@ -32,5 +43,9 @@ public class Note {
 		this.position = position;
 	}
 	
+	@Override
+	public String toString() {
+		return "Note [name=" + name + ", pitch=" + pitch + ", position=" + position + ", duration=" + duration + "]";
+	}
 	
 }

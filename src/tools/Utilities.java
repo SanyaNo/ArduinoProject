@@ -1,6 +1,6 @@
 package tools;
 
-import java.awt.Container;
+import java.awt.Component;
 
 import graphics.MyWindow;
 
@@ -13,14 +13,14 @@ public class Utilities {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static Container getMainWinInstance(Container tmp){
+	public static MyWindow getMainWinInstance(Component tmp){
 		tmp = tmp.getParent();
-		if (!(tmp instanceof MyWindow)){
+		if (tmp instanceof MyWindow == false){
 			
 			getMainWinInstance(tmp);
 			
 		}
-		return tmp;
+		return (MyWindow)tmp;
 	}
 
 }
